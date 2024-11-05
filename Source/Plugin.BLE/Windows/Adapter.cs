@@ -63,8 +63,8 @@ namespace Plugin.BLE.Windows
                     args.Accept();
                     break;
 
-                case DevicePairingKinds.ProvidePin:
-                    Trace.Message("Cannot provide Pin for pairing");
+                default:
+                    Trace.Message("PairingKind " + args.PairingKind + " not supported");
                     break;
             }
         }
