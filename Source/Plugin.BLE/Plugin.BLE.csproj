@@ -1,8 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;net7.0-android33.0;net8.0-android34.0</TargetFrameworks>
-		<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net7.0-ios;net7.0-maccatalyst;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);MonoAndroid13.0;Xamarin.iOS10;Xamarin.Mac20;uap10.0.19041;net7.0-windows10.0.19041;net8.0-windows10.0.19041;net8.0-windows10.0.22000.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041;net8.0-windows10.0.19041;net8.0-windows10.0.22000.0</TargetFrameworks>
 		<AssemblyName>Plugin.BLE</AssemblyName>
 		<RootNamespace>Plugin.BLE</RootNamespace>
 		<Version>3.1.0</Version>
@@ -41,7 +40,6 @@
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-android'))">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows10'))">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows10'))">10.0.17763.0</TargetPlatformMinVersion>
-		<TargetPlatformMinVersion Condition=" $(TargetFramework.StartsWith('uap10.0')) ">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)'=='Release' And '$(OS)' == 'Windows_NT' ">
